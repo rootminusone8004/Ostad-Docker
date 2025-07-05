@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
   // Fetch registered students
   const fetchStudents = async () => {
     try {
-      const response = await fetch("http://localhost:5050/getStudents");
+      const response = await fetch("http://13.60.212.161:5050/getStudents");
       const data = await response.json();
       setStudents(data);
     } catch (error) {
@@ -45,7 +45,7 @@ const handleSubmit = async (e) => {
 
   // Use toast.promise
   toast.promise(
-    fetch("http://localhost:5050/addStudent", {
+    fetch("http://13.60.212.161:5050/addStudent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
