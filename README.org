@@ -91,8 +91,11 @@ helm install mongo bitnami/mongodb \
     --set volumePermissions.enabled=true
 #+end_src
 **** Prometheus
+
+Add the *prometheus* chart
 #+begin_src bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
 helm install monitor prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
 #+end_src
 Forward the port
