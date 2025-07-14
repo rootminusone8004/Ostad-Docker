@@ -14,3 +14,71 @@ This repo was forked for practice purpose.
 *** 3. What is a Kubernetes pod?
 
 A Kubernetes pod is the smallest deployable unit in Kubernetes. It represents a single instance of a running process and can contain one or more tightly coupled containers that share the same network namespace and storage. Pods are managed by Kubernetes and are the basic building blocks for deploying applications.
+
+*** 4. What is the use of a Deployment object?
+
+A Deployment object in Kubernetes is used to manage and automate the creation, updating, and scaling of Pods. It ensures that the desired number of pod replicas are running and handles rolling updates or rollbacks if needed. Deployments make it easier to maintain application availability and version control.
+
+*** 5. What is the purpose of a Service in K8s?
+
+A Service in Kubernetes provides a stable network endpoint to access a group of Pods. Since Pods can change or restart, Services ensure consistent communication by automatically load balancing traffic to the correct Pods. This makes it easier to expose applications within or outside the cluster.
+
+*** 6. What is a NodePort service?
+
+A NodePort service in Kubernetes exposes an application by opening a specific port on all cluster nodes. This allows external traffic to access the service using /<NodeIP>:<NodePort>/. It's a simple way to expose services outside the cluster without using a full ingress or load balancer.
+
+*** 7. What is a ConfigMap?
+
+A ConfigMap in Kubernetes is an object used to store non-confidential configuration data as key-value pairs. It allows you to separate configuration from container images, making applications more flexible and easier to manage without rebuilding images. Pods can consume ConfigMaps as environment variables or configuration files.
+
+*** 8. What is a Secret in Kubernetes?
+
+A Secret in Kubernetes is used to store sensitive data like passwords, tokens, or keys securely. Unlike ConfigMaps, Secrets are encoded and handled with more security to prevent accidental exposure. They can be injected into Pods as environment variables or mounted as files, keeping sensitive information separate from application code.
+
+*** 9. Why do we use Helm?
+
+We use Helm to simplify Kubernetes application deployment and management. It packages complex applications into charts, which handle configuration, versioning, and upgrades easily. Helm helps automate installing, updating, and rolling back applications, making cluster management more efficient and consistent.
+
+*** 10. How is a Helm chart structured?
+
+A Helm chart is organized as a directory containing a *Chart.yaml* file with metadata, a _templates/_ folder holding Kubernetes resource templates, and a *values.yaml* file for default configuration settings. This structure lets you define reusable, configurable Kubernetes deployments that Helm can install and manage.
+
+*** 11. How can we roll back a Helm release?
+
+You can roll back a Helm release using the command *helm rollback <release-name> <revision>*. This restores the release to a previous version identified by the revision number, allowing you to undo changes or fix issues quickly. If you omit the revision, it rolls back to the previous version by default.
+
+*** 12. How do you inspect a running pod’s logs?
+
+To inspect a running pod’s logs, use the command *kubectl logs <pod-name>*. This shows the standard output from the pod’s main container. If the pod has multiple containers, you can specify which one with *-c <container-name>*.
+
+*** 13. What is the purpose of Prometheus?
+
+Prometheus is a monitoring and alerting tool designed for collecting and storing metrics from systems and applications. It helps track performance, resource usage, and health by scraping data at regular intervals, enabling users to visualize trends and set up alerts for issues.
+
+*** 14. How does Prometheus collect metrics?
+
+Prometheus collects metrics by periodically scraping HTTP endpoints called exporters that expose data in a specific format. Targets like applications, nodes, or services expose these metrics, and Prometheus pulls them using its configured scrape intervals to store and analyze the data.
+
+*** 15. What is a Grafana dashboard panel?
+
+A Grafana dashboard panel is a visual component that displays specific data, such as graphs, charts, or tables. Each panel queries a data source and presents metrics or logs in an interactive way, helping users monitor and analyze system performance on a dashboard.
+
+*** 16. What’s the default port of Prometheus and Grafana?
+
+The default port for Prometheus is *9090*, and for Grafana, it’s *3000*.
+
+*** 17. What is kubectl describe pod used for?
+
+*kubectl describe pod* is used to show detailed information about a specific pod, including its status, events, container details, and resource usage. It helps diagnose issues by providing more context than basic commands like *kubectl get pods*.
+
+*** 18. What happens if you delete a pod manually?
+
+If you delete a pod manually, Kubernetes will terminate that pod, but if it’s managed by a controller like a Deployment or ReplicaSet, a new pod will be automatically created to maintain the desired state. If the pod isn’t managed, it simply stops running and won’t be recreated.
+
+*** 19. Why use separate namespaces in K8s?
+
+Separate namespaces in Kubernetes help organize and isolate resources within the same cluster. They allow teams to work independently, avoid naming conflicts, and apply different access controls or quotas, improving security and management in multi-tenant environments.
+
+*** 20. How can you scale a deployment in Kubernetes?
+
+You can scale a Kubernetes deployment by running *kubectl scale deployment <deployment-name> --replicas=<number>*. This changes the number of pod replicas to the desired count, allowing you to increase or decrease the workload easily.
