@@ -1,0 +1,16 @@
+* Ostad-Docker
+
+This repo was forked for practice purpose.
+
+** QnA
+*** 1. What is the role of kubeadm?
+
+*kubeadm* is a command-line tool that helps you set up a Kubernetes cluster quickly and reliably. It handles the bootstrapping of the control plane, sets up certificates, and allows worker nodes to join the cluster. While it doesn't install Kubernetes itself, it automates the complex steps needed to get a cluster up and running.
+
+*** 2. What are the differences between kubeadm and minikube?
+
+*kubeadm* and *minikube* both help set up Kubernetes clusters, but they serve different purposes. kubeadm is designed for creating real, multi-node production or test clusters on existing machines. In contrast, minikube runs a single-node Kubernetes cluster locally in a virtual machine or container, mainly for learning and development. kubeadm gives you full control, while minikube offers convenience and simplicity.
+
+*** 3. What is a Kubernetes pod?
+
+A Kubernetes pod is the smallest deployable unit in Kubernetes. It represents a single instance of a running process and can contain one or more tightly coupled containers that share the same network namespace and storage. Pods are managed by Kubernetes and are the basic building blocks for deploying applications.
